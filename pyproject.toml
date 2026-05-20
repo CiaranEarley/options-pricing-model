@@ -1,0 +1,18 @@
+[project]
+name = "options-pricing-model"
+version = "0.1.0"
+description = "A small options pricing project starting with a Black-Scholes console app."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.2",
+    "plotly>=5.20",
+    "streamlit>=1.35",
+    "yfinance>=0.2.40",
+]
+
+[project.scripts]
+options-pricer = "options_pricing.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
