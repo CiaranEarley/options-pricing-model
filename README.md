@@ -4,6 +4,8 @@ A Streamlit options analytics app built as a quant-trading portfolio project.
 It combines theoretical pricing models, market option-chain data, risk
 sensitivities, implied volatility, and PnL visualisation in one workflow.
 
+Live app: https://earley-option-pricer.streamlit.app/
+
 ![App preview](docs/assets/app-preview.png)
 
 ## Features
