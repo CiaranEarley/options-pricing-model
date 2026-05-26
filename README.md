@@ -1,12 +1,56 @@
 # Options Pricing Model
 
 A Streamlit options analytics app built as a quant-trading portfolio project.
-It combines theoretical pricing models, market option-chain data, risk
-sensitivities, implied volatility, and PnL visualisation in one workflow.
+It combines pricing models, delayed option-chain data, implied volatility,
+Greeks, scenario heatmaps, and expiry payoff charts in one workflow.
 
 Live app: https://earley-option-pricer.streamlit.app/
 
-![App preview](docs/assets/app-preview.png)
+![Options pricing dashboard](docs/assets/options-pricing-dashboard-wide.png)
+
+## Screenshots
+
+| Dashboard | Heatmaps | Payoff |
+| --- | --- | --- |
+| ![Options pricing dashboard](docs/assets/options-pricing-dashboard-wide.png) | ![Options price and PnL heatmaps](docs/assets/options-pricing-heatmaps-wide.png) | ![Options payoff chart](docs/assets/options-pricing-payoff-wide.png) |
+
+## What Each Section Does
+
+### Market Data
+
+The sidebar can load delayed option-chain data through `yfinance`. Pick a ticker,
+expiration, option type, and strike, then apply the selected contract to the
+model inputs.
+
+### Inputs
+
+The pricing controls set spot, strike, time to expiry, risk-free rate, dividend
+yield, volatility, pricing engine, and exercise style. Black-Scholes handles the
+closed-form baseline; the binomial tree handles early-exercise logic.
+
+### Market Prices
+
+Market call and put prices are used to solve implied volatility, then compare
+the model price against the listed market price.
+
+### Shock Grid
+
+The app builds price and PnL surfaces across spot and volatility shocks. This is
+useful for seeing how option value and trade PnL change under a grid of market
+scenarios.
+
+### Results
+
+The main dashboard shows call/put model prices, implied volatility, Greeks,
+price heatmaps, PnL heatmaps, and expiry payoff/PnL curves.
+
+## Guides
+
+- [Getting started](docs/guides/getting-started.md)
+- [App walkthrough](docs/guides/app-walkthrough.md)
+- [Screenshot gallery](docs/guides/screenshot-gallery.md)
+- [Project architecture](docs/guides/project-architecture.md)
+- [Publishing checklist](docs/guides/publishing-checklist.md)
 
 ## Features
 
@@ -21,15 +65,6 @@ Live app: https://earley-option-pricer.streamlit.app/
 - Expiry payoff and PnL curves.
 - CSV downloads for all price and PnL grids.
 - Interactive Streamlit app plus a small Python CLI.
-
-## Market Data
-
-The app can load spot price, expirations, strikes, bid/ask mids, last prices,
-listed IV, volume, and open interest through yfinance, then apply the selected
-contract to the model inputs.
-
-yfinance is useful for a no-key demo workflow. Production-quality real-time
-options data usually requires a paid OPRA-licensed provider.
 
 ## Run Locally
 

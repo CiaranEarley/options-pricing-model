@@ -4,6 +4,12 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
+.env
+.env.*
+!.env.example
+*.log
 dist/
 build/
 *.egg-info/
+.streamlit/secrets.toml
+local_outputs/
